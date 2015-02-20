@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Palace E-Market</title>
+    <!--le styles-->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/owl/assets/owl.carousel.css" rel="stylesheet">
+    <link href="assets/owl/assets/owl.theme.default.min.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+    <link href="map.css" rel="stylesheet">
+
+    <script src="assets/jquery/jquery-1.11.1.js"></script>
+    <script src="assets/handlebars/handlebars.js"></script>
+    <script src="assets/owl/owl.carousel.min.js"></script>
+
+    <!--le maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+</head>
+<body>
+<div id="appcontainer" class="container-fluid">
+
+    <div class="row">
+        <div id="app-header" class="col-sm-12">
+            <img src="assets/img/logo.png">
+
+            <form class="form-wrapper cf">
+                <input type="text" placeholder="Search here..." required>
+                <button type="submit">Search</button>
+            </form>
+            <div class="app-cart"><b id="cartcount">0</b><i id="appcart" class="fa fa-3x fa-shopping-cart"></i></div>
+
+        </div>
+        <div class="category-wrapper col-sm-3" id="category-wrapper">
+            <h1>All Departments</h1>
+            <ul>
+                <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+
+                    <h2>Electronics</h2>
+
+                    <p>
+                        <a>Mobile Phones</a><br>
+                        <a>Laptops & Netbooks</a><br>
+                        <a>Computer Accessorises</a><br>
+                        <a>External Storage Drives</a><br>
+                        <a>Apple Devices</a><br>
+                        <a>Mp3 Players</a><br>
+                        <a>printers & Scanners</a>
+                    </p>
+                </li><li>
+                    <input type="checkbox" checked>
+                    <i></i>
+
+                    <h2>Home Appliances</h2>
+
+                    <p>
+                        <a>Flat Screens</a><br>
+                        <a>Smart TVs</a><br>
+                        <a>DVD Systems</a><br>
+                        <a>Home Theatre</a><br>
+                        <a>Cameras and Camcorders</a><br>
+                        <a>Refrigerators</a>
+                    </p>
+                </li>
+                <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+
+                    <h2>Fashion</h2>
+
+                    <p>
+                        <a>Women's clothing</a><br>
+                        <a>Women's shoes</a><br>
+                        <a>Women's Accessories</a><br>
+                        <a>Men's shoes</a><br>
+                        <a>Men's clothing</a><br>
+                        <a>Men's Accessories</a><br>
+                        <a>Unisex Accessories</a><br>
+                        <a>Sunglasses</a>
+                    </p>
+                </li>
+                <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+
+                    <h2>Kids</h2>
+
+                    <p><a>Kids Accessories</a></p>
+                </li>
+                <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+
+                    <h2>Groceries</h2>
+
+                    <p>
+                        <a>Fruits</a><br>
+                        <a>Vegetables</a><br>
+                        <a>Canned Foods</a><br>
+                        <a>Drinks (Non-Alcoholic)</a><br>
+                        <a>Pastries</a><br>
+                    </p>
+                </li>   <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+
+                    <h2>More Items</h2>
+
+                    <p>
+                       <a>Others</a>
+                    </p>
+                </li>
+            </ul>
+            <div style="margin-top: 20px" class="row"></div>
+            <!--<span>Advertisements</span>-->
+            <!--<img class="col-sm-12" src="assets/ads/ad2.jpg"><br><br>-->
+            <!--<img class="col-sm-12" src="assets/ads/ad42.jpg">-->
+        </div>
+        <div class="content-wrapper col-sm-9" id="content-wrapper">
+            <div class="row">
+                <div class="content-header col-sm-12">
+                    <div>
+                        <div><i class="fa  fa-credit-card"></i> <b>Secure Payments</b></div>
+                        <div><i class="fa  fa-truck"></i> <b>Prompt Delivery</b></div>
+                        <div><i class="fa  fa-money"></i> <b>Competitive Pricing</b></div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-area" class="row">
+            </div>
+
+        </div>
+    </div>
+    <div id="map-container" class="map-container hide">
+        <div class="map-holder">
+            <div class="map-header"><b>Shipping Calculator</b></div>
+            <div id="map-area" class="map-area"></div>
+            <input id="pac-input" class="controls" type="text" placeholder="Enter Location For Delivery">
+            <div class="map-info">
+              <div><h5>Shipping Location</h5><h5 id="shiplocation" class="info-val">Accra Newtown</h5></div>
+              <div><h5>Distance</h5><h5 id="shipdistance" class="info-val">1.5 kilometers</h5></div>
+              <div><h5>Charge</h5><h5 id="shipamount" class="info-val">Ghc 30</h5></div>
+              <div><h5 class="info-val" style="font-weight: lighter"><span style="color: red">*</span>  Distance calculated from our nearest warehouse to your current /selected location</h5></div>
+               <a id="shipping-confirm" class="btn btn-primary">confirm</a>
+               <a id="shipping-cancel" class="btn btn-primary">cancel</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="map.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
+<!--<div id="checkout-area" class="row">-->
+    <!--<div class="topic-head col-sm-11"><span>Check Out</span></div>-->
+    <!--<div class="checkout-box col-sm-12"><img class="col-sm-3"-->
+                                             <!--src="assets/products/.jpg">-->
+
+        <!--<div class="col-sm-5 checkout-item-details">-->
+
+            <!--<div class="items-info">9 Items Bought</div>-->
+            <!--<div class="items-price">-->
+                <!--<div>Total Price(items only) :</div>-->
+                <!--<div>Shipping : (click on calculate)<a class="btn btn-sm btn-primary" >Calculate </a></div>-->
+
+            <!--</div>-->
+            <!--<div class="item-totprice">-->
+                <!--<div>You Pay :<span>200 GHc</span>(items + Shipping) :</div>-->
+
+            <!--</div>-->
+            <!--<div class="item-cards">-->
+                <!--<div>We Accept these Payment methods</div>-->
+                <!--<ul>-->
+                    <!--<li>LOCAL VISA / MASTERCARD</li>-->
+                    <!--<li>INTL VISA / MASTERCARD</li>-->
+                    <!--<li>MTN MOBILE MONEY</li>-->
+                    <!--<li>Tigo Cash</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="item-pay"><a class="btn btn-primary" >Pay Now</a></div>-->
+        <!--</div>-->
+        <!--<div class="col-sm-3 cart-buttons">-->
+            <!--<a class="btn btn-primary" >Continue Shopping</a><br>-->
+            <!--<a class="btn btn-primary" >Back to Cart</a><br>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
